@@ -3,14 +3,9 @@ import { Transaction } from '../types';
 
 export const analyzeDataWithGemini = async (
   query: string, 
-  transactions: Transaction[],
-  apiKey: string
+  transactions: Transaction[]
 ): Promise<string> => {
-  if (!apiKey) {
-    return "API Key Gemini tidak ditemukan. Harap konfigurasi environment variable atau hubungi administrator.";
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   // Optimize context: If too many transactions, summarize or truncate
   // For a simple ERP, we assume < 1000 rows, or we take the last 200 for context to fit context window safely.

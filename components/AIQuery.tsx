@@ -29,8 +29,7 @@ export const AIQuery: React.FC<AIQueryProps> = ({ transactions }) => {
     setLoading(true);
 
     try {
-      const apiKey = process.env.API_KEY || '';
-      const response = await analyzeDataWithGemini(userMsg, transactions, apiKey);
+      const response = await analyzeDataWithGemini(userMsg, transactions);
       setMessages(prev => [...prev, { role: 'ai', content: response }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'ai', content: 'Maaf, terjadi kesalahan koneksi.' }]);
