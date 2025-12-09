@@ -1,0 +1,5 @@
+{
+  "name": "FinAI ERP",
+  "description": "A smart financial ERP system with CSV/Excel upload, interactive dashboard, and AI-powered financial analysis.",
+  "requestFramePermissions": []
+}
